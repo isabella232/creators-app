@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }) {
       <title>Become a Creator - Brave Rewards | Creators</title>
      <body class="h-full bg-gray-100">
      <meta name="description" content="Viewers who use the Brave Browser may have contributed money to you while surfing the web through Brave Rewards. Simply sign up as a verified content creator on Brave Rewards to start collecting your contributions."/> 
-      <PrimaryLayout {...{isAdmin, isHome}} ><SecondaryLayout>{getLayout(<Component {...pageProps}/>)}</SecondaryLayout></PrimaryLayout>
+        <PrimaryLayout {...{ isAdmin, isHome }} ><SecondaryLayout>{getLayout(<Component {...pageProps} />)}</SecondaryLayout></PrimaryLayout>
     </body>
     </>
   )
