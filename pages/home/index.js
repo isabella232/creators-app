@@ -1,4 +1,3 @@
-import HeaderLayout from '../../layouts/headerLayout'
 
 const Card = ({ children }) => {
   return (
@@ -55,6 +54,3 @@ export default function Home({ referrals = true }) {
     </div>
   )
 }
-
-Home.getLayout = (page) => <HeaderLayout title="Home">{page}</HeaderLayout>
-

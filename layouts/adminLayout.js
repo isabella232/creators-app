@@ -33,7 +33,7 @@ const ExpansionButton = ({ title = "Title", children, onClick }) => {
 export default function AdminLayout({ children }) {
     return (
         <div className='md:grid md:grid-cols-4'>
-            <div className=' bg-slate-700 md:h-screen h-min'>
+            <div className=' bg-slate-700 md:h-screen'>
                 <div>
                     <ExpansionButton title="Publishers">
                         <Link href='/admin/publishers'>All Publishers</Link>
@@ -70,7 +70,7 @@ export default function AdminLayout({ children }) {
                 </div>
             </div>
             <div className='col-span-3'>
-                <HeaderLayout><div>Some content</div></HeaderLayout>
+                <HeaderLayout>{children}</HeaderLayout>
             </div>
         </div>
     )

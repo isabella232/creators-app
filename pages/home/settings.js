@@ -119,5 +119,3 @@ export default function Settings() {
     </>
   )
 }
-
-Settings.getLayout = (page) => <HeaderLayout title="Settings">{page}</HeaderLayout>
