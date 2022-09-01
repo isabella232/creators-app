@@ -1,6 +1,6 @@
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/solid'
-import HeaderLayout from './headerLayout'
+import HeaderLayout from '@layouts/headerLayout'
 import React from 'react'
 import { useRouter } from 'next/router'
 

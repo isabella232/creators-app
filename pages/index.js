@@ -1,8 +1,3 @@
-
-/* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
-
 const navigation = [
   { name: 'Log in', href: '/login' },
   { name: 'Sign Up', href: '/login' },
@@ -25,10 +20,10 @@ export default function Landing() {
             <polygon points="50,0 100,0 50,100 0,100" />
           </svg>
           <img
-              alt="Brave"
-              className="w-auto h-72"
-              src={brave_icon_url}
-            />
+            alt="Brave"
+            className="w-auto h-72"
+            src={brave_icon_url}
+          />
           <main className="lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl sm:tracking-tight md:text-6xl md:tracking-tight">

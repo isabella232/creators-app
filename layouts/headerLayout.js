@@ -1,19 +1,21 @@
 import { useRouter } from "next/router"
-
-export const usePathTitle = () => { 
-  const router = useRouter()
-  const title = router.pathname.split("/").slice(1).join(" | ")
-  return title
-}
+import { ChevronRightIcon } from "@heroicons/react/outline"
 
 export default function HeaderLayout({ children }) {
-  const title = usePathTitle()
+  const router = useRouter()
+  const paths = router.pathname.split("/").slice(1)
 
   return (
     <div >
       <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-2xl tracking-wide text-gray-600 capitalize">{title}</h1>
+        <div className="max-w-7xl py-3 px-4 sm:px-6 lg:px-8 mx-auto flex items-center">
+          {paths.map(path =>
+            <>
+              <ChevronRightIcon className="h-4 m-3"/>
+              <div className="text-lg tracking-wide text-gray-600 capitalize">{path}</div>
+        
+            </>
+          )}
         </div>
       </header>
       <main>

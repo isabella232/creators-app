@@ -1,9 +1,9 @@
 // `pages/_app.js`
-import '../styles/global.css';
+import '@styles/global.css';
 import { useRouter } from 'next/router'
-import PublisherLayout from '../layouts/publisherLayout';
-import AdminLayout from '../layouts/adminLayout';
-import HeaderLayout from '../layouts/headerLayout';
+import PublisherLayout from '@layouts/publisherLayout';
+import AdminLayout from '@layouts/adminLayout';
+import HeaderLayout from '@layouts/headerLayout';
 
 const EmptyLayout = ({ children }) => <>{children}</>
 
@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
   const isHome = router.route.startsWith("/home") 
 
   const PrimaryLayout = isAdmin || isHome ? PublisherLayout : EmptyLayout
-  const SecondaryLayout =  isAdmin ? AdminLayout : isHome ? HeaderLayout : EmptyLayout
+  const SecondaryLayout =  isHome || isAdmin ? HeaderLayout : EmptyLayout
 
   const getLayout = Component.getLayout || ((page) => page)
 
