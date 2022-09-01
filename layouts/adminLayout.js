@@ -1,8 +1,8 @@
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/solid'
 import HeaderLayout from './headerLayout'
-import Link from 'next/link'
 import React from 'react'
+import { useRouter } from 'next/router'
 
 const ExpansionButton = ({ title = "Title", children, onClick }) => {
     return (
@@ -10,8 +10,8 @@ const ExpansionButton = ({ title = "Title", children, onClick }) => {
             <Disclosure>
                 {({ open }) => (
                     <>
-                        <Disclosure.Button onClick className="shadow shadow-slate-500 flex w-full justify-between px-4 py-2 text-left text-sm font-medium text-white hover:bg-slate-600 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                            <span className='pr-10 text-lg'>{title}</span>
+                        <Disclosure.Button onClick={onClick} className="shadow shadow-slate-500 flex w-full justify-between px-4 py-2 font-medium text-white hover:bg-slate-600 focus:outline-none focus-visible:ring focus-visible:ring-slate-500 focus-visible:ring-opacity-75">
+                            <span className='text-lg'>{title}</span>
                             {children && <ChevronUpIcon
                                 className={`${open ? 'rotate-180 transform' : ''
                                     } h-5 w-5 text-white`}
@@ -31,45 +31,18 @@ const ExpansionButton = ({ title = "Title", children, onClick }) => {
 }
 
 export default function AdminLayout({ children }) {
+    const router = useRouter()
     return (
-        <div className='md:grid md:grid-cols-4'>
-            <div className=' bg-slate-700 md:h-screen'>
-                <div>
-                    <ExpansionButton title="Publishers">
-                        <Link href='/admin/publishers'>All Publishers</Link>
-                        <Link href='/admin/publishers'>Suspended Publishers</Link>
-                        <Link href='/admin/publishers'>2FA Removals</Link>
-                    </ExpansionButton>
-                    <ExpansionButton title="Publishers Stats" />
-                    <ExpansionButton title="Visitor Stats" />
-                    <ExpansionButton title="Top Publisher Contributions">
-                        <Link href='/admin/publishers'>All Publishers</Link>
-                        <Link href='/admin/publishers'>Suspended Publishers</Link>
-                        <Link href='/admin/publishers'>2FA Removals</Link>
-                    </ExpansionButton>
-                    <ExpansionButton title="Top Publisher Referrals">
-                        <Link href='/admin/publishers'>All Publishers</Link>
-                        <Link href='/admin/publishers'>Suspended Publishers</Link>
-                        <Link href='/admin/publishers'>2FA Removals</Link>
-                    </ExpansionButton>
-                    <ExpansionButton title="Top Balances">
-                        <Link href='/admin/publishers'>All Publishers</Link>
-                        <Link href='/admin/publishers'>Suspended Publishers</Link>
-                        <Link href='/admin/publishers'>2FA Removals</Link>
-                    </ExpansionButton>
-                    <ExpansionButton title="Top YouTube Channels">
-                        <Link href='/admin/publishers'>All Publishers</Link>
-                        <Link href='/admin/publishers'>Suspended Publishers</Link>
-                        <Link href='/admin/publishers'>2FA Removals</Link>
-                    </ExpansionButton>
-                    <ExpansionButton title="FAQS">
-                        <Link href='/admin/publishers'>All Publishers</Link>
-                        <Link href='/admin/publishers'>Suspended Publishers</Link>
-                        <Link href='/admin/publishers'>2FA Removals</Link>
-                    </ExpansionButton>
+        <div>
+            <div className=' bg-slate-700'>
+                <div className='flex'>
+                    <ExpansionButton title="Publishers" onClick={() => router.push('/admin/publishers')} />
+                    <ExpansionButton title="Channels" onClick={ () => router.push('/admin/channels')}/>
+                    <ExpansionButton title="Referrals" onClick={ () => router.push('/admin/referrals')} />
+                    <ExpansionButton title="Payouts" onClick={ () => router.push('/admin/payouts')}/>
                 </div>
             </div>
-            <div className='col-span-3'>
+            <div>
                 <HeaderLayout>{children}</HeaderLayout>
             </div>
         </div>
