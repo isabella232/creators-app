@@ -5,6 +5,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
     "./layouts/**/*.{js,ts,jsx,tsx}",
   ],
+	presets: [
+		require("@brave/leo/build/tailwind")
+	],
   theme: {
     extend: {},
   },

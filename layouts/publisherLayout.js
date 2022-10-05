@@ -1,165 +1,132 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon, Bolt } from '@heroicons/react/outline'
+import Image from "next/image";
+import Link from "next/link"
+import { Divider } from "@components/PageElements";
+import brave_logo from 'public/images/PublisherMediaAssets/Logos/Brave/PNG/primary/logo/brave-lion.png'
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+const BraveLogoSmall = () => {
+    return (
+        <div className="w-6 h-6"><Image src={brave_logo} /></div>
+    )
+}
+const BraveLogo = () => {
+    return (
+        <div className="flex items-center">
+            <div className="mr-3"><BraveLogoSmall /></div>
+            <h1 className="text-text-large text-text-primary font-extrabold mt-1">Brave Creators</h1>
+        </div>
+    )
 }
 
-export default function PublisherLayout({ children, isAdmin }) {
-  const brave_icon_url = "/images/brave-rewards-creators-mobile-logo.svg"
 
-  const navigation = isAdmin ? [
-    { name: 'Publishers', href: '/admin/publishers', current: isAdmin },
-    { name: 'Channels', href: '/admin/channels', current: isAdmin },
-    { name: 'Referrals', href: '/admin/referrals', current: isAdmin },
-    { name: 'Payouts', href: '/admin/payouts', current: isAdmin },
-  ] : []
-  return (
-    <>
-      <Disclosure as="nav" className="bg-gray-600 bg-current">
-        {({ open }) => (
-          <>
-            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-              <div className="relative flex items-center justify-between h-16">
-                <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                  {/* Mobile menu button*/}
-                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                    <span className="sr-only">Open main menu</span>
-                    {open ? (
-                      <XIcon className="block h-6 w-6 bg-gray-600" aria-hidden="true" />
-                    ) : (
-                      <MenuIcon className="block h-6 w-6" aria-hidden="true" />
-                    )}
-                  </Disclosure.Button>
-                </div>
-                <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                  <div className="flex-shrink-0 flex items-center">
-                    <a href='/home'>
-                      <img
-                        className="block lg:hidden h-8 w-auto"
-                        src={brave_icon_url}
-                        alt="Workflow"
-                      />
-                    </a>
-                    <a href='/home'>
-                      <img
-                        className="hidden lg:block h-8 w-auto"
-                        src={brave_icon_url}
-                        alt="Workflow"
-                      />
-                    </a>
-                  </div>
-                  <div className="hidden sm:block sm:ml-6">
-                    <div className="flex space-x-4">
-                      {navigation.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className={classNames(
-                            item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                            'px-3 py-2 rounded-md text-sm font-medium'
-                          )}
-                          aria-current={item.current ? 'page' : undefined}
-                        >
-                          {item.name}
-                        </a>
-                      ))}
+export default function Applayout({ appContext = {}, children }) {
+
+    const { user, setUser, isHome } = appContext
+    const { channels, banner, custodian } = user;
+
+    // Just for clarification I am not advocating this be the way we handle things,
+    // this is for development UI purposes only and should be removed/replaced by something
+    // more effective.
+
+    const toggleChannels = () => {
+        console.log({ channels })
+        if (channels && !channels.length) {
+            setUser({ ...user, channels: [1, 2, 3, 4] })
+        } else if (channels && !!channels.length) {
+            setUser({ ...user, channels: [] })
+        }
+    }
+
+    const toggleBanner = () => {
+        if (!banner) {
+            setUser({ ...user, banner: true })
+        } else {
+            setUser({ ...user, banner: false })
+        }
+    }
+
+    const toggleAccountServices = () => {
+        if (!custodian) {
+            setUser({ ...user, custodian: true })
+        } else {
+            setUser({ ...user, custodian: false })
+        }
+    }
+
+    const isInitialState = !custodian && !banner && (!channels || !!channels && !channels.length)
+
+    const toggleInitialState = () => {
+        if (!isInitialState) {
+            setUser({ ...user, custodian: false, banner: false, channels: [] })
+        } else {
+            setUser({ ...user, custodian: true, banner: true, channels: [1, 2, 3, 4] })
+
+        }
+    }
+
+    return (
+        <html className="h-full" data-theme="light">
+            <head>
+                <title>Become a Creator - Brave Rewards | Creators</title>
+                <meta name="description" content="Viewers who use the Brave Browser may have contributed money to you while surfing the web through Brave Rewards. Simply sign up as a verified content creator on Brave Rewards to start collecting your contributions." />
+            </head>
+            <body className="bg-page-background h-screen">
+                <div className="flex flex-col lg:flex-row justify-between">
+                    <div className='bg-container-background shadow-03 w-full h-14 lg:h-screen lg:min-w-[250px] lg:w-[250px] lg:rounded-br-16'>
+                        <div className="mt-4 lg:ml-8 lg:mt-8">
+                            <div className="flex flex-row items-center gap-2 mb-24 justify-between">
+                                <div className="ml-4 lg:hidden">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                                    </svg>
+                                </div>
+
+                                <BraveLogo />
+
+                                <div className="mr-4 lg:hidden">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                        <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clipRule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div className="invisible lg:visible">
+                                <ul className="space-y-4 text-text-secondary">
+                                    <li><Link href="/home">Home</Link></li>
+                                    <li><Link href="/home/feed">Feed</Link></li>
+                                    <li><Link href="/home/explore">Explore</Link></li>
+                                    <li><Link href="/home/notifications">Notifications</Link></li>
+                                    <li><Link href="/home/creator-tools">Creator tools</Link></li>
+                                    <li>Settings</li>
+                                    <li className="ml-4"><Link href='/home/profile'>Profile</Link></li>
+                                    <li className="ml-4"><Link href='/home/account'>Account</Link></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <Divider />
+                        {!!isHome && (
+                            <ul className="m-8 space-y-4  text-text-secondary flex flex-col">
+                                <li className="pt-8">Development</li>
+                                <li className="ml-4"><button onClick={toggleChannels}>Toggle Channels</button></li>
+                                <li className="ml-4"><button onClick={toggleBanner}>Toggle Banner</button></li>
+                                <li className="ml-4"><button onClick={toggleAccountServices}>Toggle Account Services</button></li>
+                                <li className="ml-4"><button onClick={toggleInitialState}>Toggle initial state</button></li>
+
+                            </ul>
+                        )}
+
                     </div>
-                  </div>
+                    <main className="mb-8 lg:m-8 space-y-8 max-w-7xl min-h-screen w-full">
+                        {children}
+                    </main>
+                    <div />
                 </div>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <button
-                    type="button"
-                    className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                  >
-                    <span className="sr-only">View notifications</span>
-                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
-
-                  {/* Profile dropdown */}
-                  <Menu as="div" className="ml-3 relative">
-                    <div>
-                      <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                        <span className="sr-only">Open user menu</span>
-                        <img
-                          className="h-8 w-8 rounded-full"
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                          alt=""
-                        />
-                      </Menu.Button>
+                <footer className='min-w-full bg-black pl-10 pr-6 pt-10 pb-10'>
+                    <div className="flex text-white"><BraveLogoSmall /><span className="ml-2">brave</span></div>
+                    <div className='text-text-secondary flex flex-col items-end'>
+                        <div className="text-text-small">Terms of use / Report a security issue</div>
+                        <div className='text-text-x-small'>2015 - 2022 Brave Software, Inc | All Rights Reserved</div>
                     </div>
-                    <Transition
-                      as={Fragment}
-                      enter="transition ease-out duration-100"
-                      enterFrom="transform opacity-0 scale-95"
-                      enterTo="transform opacity-100 scale-100"
-                      leave="transition ease-in duration-75"
-                      leaveFrom="transform opacity-100 scale-100"
-                      leaveTo="transform opacity-0 scale-95"
-                    >
-                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="/admin"
-                              className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                            >
-                              Admin
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="/home/settings"
-                              className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                            >
-                              Settings
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="/"
-                              className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                            >
-                              Sign out
-                            </a>
-                          )}
-                        </Menu.Item>
-                      </Menu.Items>
-                    </Transition>
-                  </Menu>
-                </div>
-              </div>
-            </div>
-
-            <Disclosure.Panel className="sm:hidden">
-              <div className="px-2 pt-2 pb-3 space-y-1">
-                {navigation.map((item) => (
-                  <Disclosure.Button
-                    key={item.name}
-                    as="a"
-                    href={item.href}
-                    className={classNames(
-                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                      'block px-3 py-2 rounded-md text-base font-medium'
-                    )}
-                    aria-current={item.current ? 'page' : undefined}
-                  >
-                    {item.name}
-                  </Disclosure.Button>
-                ))}
-              </div>
-            </Disclosure.Panel>
-          </>
-        )}
-      </Disclosure>
-
-      {children}
-    </>
-  )
+                </footer>
+            </body>
+        </html>
+    )
 }
-

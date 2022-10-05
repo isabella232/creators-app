@@ -1,29 +1,63 @@
 // `pages/_app.js`
 import '@styles/global.css';
+import { useEffect, useState } from "react";
 import { useRouter } from 'next/router'
-import PublisherLayout from '@layouts/publisherLayout';
-import AdminLayout from '@layouts/adminLayout';
-import HeaderLayout from '@layouts/headerLayout';
+import AppLayout from '@layouts/publisherLayout';
+import AppContext from '@components/AppContext';
 
 const EmptyLayout = ({ children }) => <>{children}</>
 
 export default function App({ Component, pageProps }) {
-  const router = useRouter()
-  const isAdmin = router.route.startsWith("/admin") 
-  const isHome = router.route.startsWith("/home") 
+  const { route } = useRouter()
 
-  const PrimaryLayout = isAdmin || isHome ? PublisherLayout : EmptyLayout
-  const SecondaryLayout =  isHome || isAdmin ? HeaderLayout : EmptyLayout
+  const isHome = route === "/home"
+  const isHomeContext = route.startsWith("/home")
+  const isAdminContext = route.startsWith("/admin")
 
-  const getLayout = Component.getLayout || ((page) => page)
+  const [user, setUser] = useState();
+  const [loading, setLoading] = useState(true);
+
+  const fetchData = async () => {
+    setLoading(true);
+
+    // TODO: Going to need to think hard about data modeling here soon
+    const channels = []
+    const banner = false
+    const custodian = false
+
+    const user = {
+      first_name: "Demo",
+      last_name: "User",
+      email: "demo@user.com",
+      channels,
+      banner,
+      custodian
+    }
+
+    setUser(user)
+    setLoading(false);
+  };
+
+  useEffect(() => fetchData(), []);
+
+  const appContext = {
+    user,
+    setUser,
+    loading,
+    setLoading,
+    isHome,
+    isHomeContext,
+    isAdminContext,
+  };
+
+  const PrimaryLayout = isHomeContext ? AppLayout : EmptyLayout
 
   return (
     <>
-      <title>Become a Creator - Brave Rewards | Creators</title>
-     <body class="h-full bg-gray-100">
-     <meta name="description" content="Viewers who use the Brave Browser may have contributed money to you while surfing the web through Brave Rewards. Simply sign up as a verified content creator on Brave Rewards to start collecting your contributions."/> 
-        <PrimaryLayout {...{ isAdmin, isHome }} ><SecondaryLayout>{getLayout(<Component {...pageProps} />)}</SecondaryLayout></PrimaryLayout>
-    </body>
+      {!loading && (
+        <AppContext.Provider value={appContext}>
+          <PrimaryLayout {...{ appContext }} ><Component {...pageProps} /></PrimaryLayout>
+        </AppContext.Provider>)}
     </>
   )
 }
