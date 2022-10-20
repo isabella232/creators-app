@@ -9,7 +9,7 @@ export const TwitterCard = (props) => {
 
 export default function ChannelCard({ icon, name = "Twitter", username = "oauthbringer", earnings }) {
     return (
-        <div className="rounded-8 border border-light-divider-subtle bg-container-background max-w-[200px] md:max-w-[300px]">
+        <div className="rounded-8 border border-light-divider-subtle bg-container-background max-w-[300px] md:max-w-[300px]">
             <div>
                 <div className="mx-4 mt-4 space-y-2">
                     <div className="flex items-center space-x-2">

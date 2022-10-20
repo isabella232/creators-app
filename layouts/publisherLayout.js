@@ -103,12 +103,12 @@ export default function Applayout({ appContext = {}, children }) {
                         </div>
                         <Divider />
                         {!!isHome && (
-                            <ul className="m-8 space-y-4  text-text-secondary flex flex-col">
+                            <ul className="m-8 space-y-4  text-text-secondary flex justify-start flex-col">
                                 <li className="pt-8">Development</li>
-                                <li className="ml-4"><button onClick={toggleChannels}>Toggle Channels</button></li>
-                                <li className="ml-4"><button onClick={toggleBanner}>Toggle Banner</button></li>
-                                <li className="ml-4"><button onClick={toggleAccountServices}>Toggle Account Services</button></li>
-                                <li className="ml-4"><button onClick={toggleInitialState}>Toggle initial state</button></li>
+                                <li className="ml-2"><button onClick={toggleChannels}>Toggle Channels</button></li>
+                                <li className="ml-2"><button onClick={toggleBanner}>Toggle Banner</button></li>
+                                <li className="ml-2"><button onClick={toggleAccountServices}>Toggle Account Services</button></li>
+                                <li className="ml-2"><button onClick={toggleInitialState}>Toggle initial state</button></li>
 
                             </ul>
                         )}
