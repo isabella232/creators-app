@@ -17,9 +17,7 @@ const BraveLogo = () => {
     )
 }
 
-
-export default function Applayout({ appContext = {}, children }) {
-
+const SideNav = ({ appContext }) => {
     const { user, setUser, isHome } = appContext
     const { channels, banner, custodian } = user;
 
@@ -64,61 +62,77 @@ export default function Applayout({ appContext = {}, children }) {
     }
 
     return (
-        <html className="h-full" data-theme="light">
+        <div className='bg-container-background shadow-03 lg:min-w-[250px] lg:w-[250px] hidden lg:flex lg:flex-col'>
+            <div className="m-4">
+                <BraveLogo />
+            </div>
+            <div className="mt-4 lg:ml-8 lg:mt-8">
+                <div>
+                    <ul className="space-y-4 text-text-secondary">
+                        <li><Link href="/home">Home</Link></li>
+                        <li><Link href="/home/feed">Feed</Link></li>
+                        <li><Link href="/home/explore">Explore</Link></li>
+                        <li><Link href="/home/notifications">Notifications</Link></li>
+                        <li><Link href="/home/creator-tools">Creator tools</Link></li>
+                        <li>Settings</li>
+                        <li className="ml-4"><Link href='/home/profile'>Profile</Link></li>
+                        <li className="ml-4"><Link href='/home/account'>Account</Link></li>
+                    </ul>
+                </div>
+            </div>
+            <Divider />
+            {!!isHome && (
+                <ul className="m-8 space-y-4  text-text-secondary flex justify-start flex-col">
+                    <li className="pt-8">Development</li>
+                    <li className="ml-2"><button onClick={toggleChannels}>Toggle Channels</button></li>
+                    <li className="ml-2"><button onClick={toggleBanner}>Toggle Banner</button></li>
+                    <li className="ml-2"><button onClick={toggleAccountServices}>Toggle Account Services</button></li>
+                    <li className="ml-2"><button onClick={toggleInitialState}>Toggle initial state</button></li>
+
+                </ul>
+            )}
+        </div>
+    )
+}
+
+const MobileHeader = () => {
+    return (
+        <div className="flex flex-row lg:hidden items-center justify-between h-14 bg-container-background">
+            <div className="ml-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                </svg>
+            </div>
+
+            <BraveLogo />
+
+            <div className="mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                    <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clipRule="evenodd" />
+                </svg>
+            </div>
+        </div>
+    )
+}
+
+export default function Applayout({ appContext = {}, children }) {
+
+
+    return (
+        <html data-theme="light">
             <head>
                 <title>Become a Creator - Brave Rewards | Creators</title>
                 <meta name="description" content="Viewers who use the Brave Browser may have contributed money to you while surfing the web through Brave Rewards. Simply sign up as a verified content creator on Brave Rewards to start collecting your contributions." />
             </head>
-            <body className="bg-page-background h-screen">
+            <body className="bg-page-background">
+                <MobileHeader />
                 <div className="flex flex-col lg:flex-row justify-between">
-                    <div className='bg-container-background shadow-03 w-full h-14 lg:h-screen lg:min-w-[250px] lg:w-[250px] lg:rounded-br-16'>
-                        <div className="mt-4 lg:ml-8 lg:mt-8">
-                            <div className="flex flex-row items-center gap-2 mb-24 justify-between">
-                                <div className="ml-4 lg:hidden">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
-                                    </svg>
-                                </div>
-
-                                <BraveLogo />
-
-                                <div className="mr-4 lg:hidden">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                                        <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clipRule="evenodd" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div className="invisible lg:visible">
-                                <ul className="space-y-4 text-text-secondary">
-                                    <li><Link href="/home">Home</Link></li>
-                                    <li><Link href="/home/feed">Feed</Link></li>
-                                    <li><Link href="/home/explore">Explore</Link></li>
-                                    <li><Link href="/home/notifications">Notifications</Link></li>
-                                    <li><Link href="/home/creator-tools">Creator tools</Link></li>
-                                    <li>Settings</li>
-                                    <li className="ml-4"><Link href='/home/profile'>Profile</Link></li>
-                                    <li className="ml-4"><Link href='/home/account'>Account</Link></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <Divider />
-                        {!!isHome && (
-                            <ul className="m-8 space-y-4  text-text-secondary flex justify-start flex-col">
-                                <li className="pt-8">Development</li>
-                                <li className="ml-2"><button onClick={toggleChannels}>Toggle Channels</button></li>
-                                <li className="ml-2"><button onClick={toggleBanner}>Toggle Banner</button></li>
-                                <li className="ml-2"><button onClick={toggleAccountServices}>Toggle Account Services</button></li>
-                                <li className="ml-2"><button onClick={toggleInitialState}>Toggle initial state</button></li>
-
-                            </ul>
-                        )}
-
-                    </div>
+                    <SideNav appContext={appContext} />
                     <main className="mb-8 lg:m-8 space-y-8 max-w-7xl min-h-screen w-full">
                         {children}
                     </main>
-                    <div />
                 </div>
+                <div />
                 <footer className='min-w-full bg-black pl-10 pr-6 pt-10 pb-10'>
                     <div className="flex text-white"><BraveLogoSmall /><span className="ml-2">brave</span></div>
                     <div className='text-text-secondary flex flex-col items-end'>
@@ -127,6 +141,6 @@ export default function Applayout({ appContext = {}, children }) {
                     </div>
                 </footer>
             </body>
-        </html>
+        </html >
     )
 }
