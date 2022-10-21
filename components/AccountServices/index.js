@@ -37,7 +37,7 @@ export default function AccountServices() {
                         <p className="mt-2 text-text-secondary text-text-default">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus semper ante ligula, vitae fermentum neque commodo et. Etiam egestas lectus.
                         </p>
                     </div>
-                    <div className='bg-gradient-to-br from-pink-40/10 to-purple-40/10 via-container-background rounded-16'>
+                    <div className='bg-gradient-to-br from-pink-40/10 to-purple-40/10 via-container-background rounded-16 flex flex-col justify-center'>
                         <div className="p-8 lg:p-0 lg:m-8 space-y-4">
                             <div> <p className="text-text-secondary uppercase">Lorem Ipsum</p></div>
                             <div className="space-y-2 md:space-y-0 md:flex gap-2">
