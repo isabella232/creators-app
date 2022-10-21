@@ -18,7 +18,7 @@ export default function Channels() {
                         <p className="text-text-secondary max-w-4xl">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis massa non dolor sodales, eu ullamcorper lectus mattis. Nulla eu pellentesque turpis, eget congue est. Etiam ultricies rutrum odio, vel.
                         </p>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                             {channels.slice(0, 10).map(() => <div><TwitterCard /></div>)}
                         </div>
                     </section>

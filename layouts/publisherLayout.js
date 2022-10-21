@@ -131,6 +131,7 @@ export default function Applayout({ appContext = {}, children }) {
                     <main className="mb-8 lg:m-8 space-y-8 max-w-7xl min-h-screen w-full">
                         {children}
                     </main>
+                    <div/>
                 </div>
                 <div />
                 <footer className='min-w-full bg-black pl-10 pr-6 pt-10 pb-10'>
