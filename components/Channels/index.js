@@ -27,7 +27,7 @@ export default function Channels() {
             {!channels.length && (
                 <Card {...constantProps}>
                     <Section header="">
-                        <p className="text-text-secondary max-w-4xl pb-12">
+                        <p className="text-text-secondary max-w-4xl pb-12 text-justify-responsive">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis massa non dolor sodales, eu ullamcorper lectus mattis. Nulla eu pellentesque turpis, eget congue est. Etiam ultricies rutrum odio, vel.
                         </p>
                         <div className='rounded-16 border border-gray-20 flex flex-col items-center p-8 space-y-4'>

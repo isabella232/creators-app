@@ -1,4 +1,5 @@
 import { Card, Section, Divider } from "@components/PageElements"
+import { TextField, Checkbox } from "@components/FormElements"
 
 export default function Profile() {
   return (
@@ -14,18 +15,15 @@ export default function Profile() {
           </map>
           <div className="lg:flex lg:flex-row lg:justify-between lg:space-x-8 mt-8">
             <div className="flex flex-col w-full">
-              <label for="display_name">Display name</label>
-              <input id="display_name" name="display_name" className='bg-container-interactive-background rounded-8 h-10'></input>
+              <TextField id="display_name" label="Display name" />
             </div>
             <div className="flex flex-col w-full">
-              <label for="user_name">Username</label>
-              <input id="user_name" name="user_name" className='bg-container-interactive-background rounded-8 h-10'></input>
+              <TextField id="user_name" label="Username" />
             </div>
           </div>
           <div>
             <div className="flex flex-col mt-4">
-              <label for="bio">Bio</label>
-              <input id="bio" name="bio" className='bg-container-interactive-background h-36 rounded-8'></input>
+              <TextField id="bio" label="Bio" className="h-36" />
             </div>
           </div>
         </div>
@@ -34,26 +32,26 @@ export default function Profile() {
       <Section header="Social media links">
         <div className="lg:flex lg:flex-row lg:justify-between lg:space-x-8 mt-2">
           <div className="flex flex-col w-full mb-2 lg:mb-0">
-            <input id="display_name" name="display_name" className='bg-container-interactive-background rounded-8 h-10'></input>
+            <TextField id="twitter" value="twitter.com/" className="pl-4" />
           </div>
           <div className="flex flex-col w-full">
-            <input id="user_name" name="user_name" className='bg-container-interactive-background rounded-8 h-10'></input>
+            <TextField id="youtube" value="youtube.com/" className="pl-4" />
           </div>
         </div>
         <div className="lg:flex lg:flex-row lg:justify-between lg:space-x-8 mt-2">
           <div className="flex flex-col w-full mb-2 lg:mb-0">
-            <input id="display_name" name="display_name" className='bg-container-interactive-background rounded-8 h-10'></input>
+            <TextField id="twitch" value="twitch.tv/" className="pl-4" />
           </div>
           <div className="flex flex-col w-full">
-            <input id="user_name" name="user_name" className='bg-container-interactive-background rounded-8 h-10'></input>
+            <TextField id="github" value="github.com/" className="pl-4" />
           </div>
         </div>
         <div className="lg:flex lg:flex-row lg:justify-between lg:space-x-8 mt-2">
           <div className="flex flex-col w-full mb-2 lg:mb-0">
-            <input id="display_name" name="display_name" className='bg-container-interactive-background rounded-8 h-10'></input>
+            <TextField id="instagram" value="instagram.com/" className="pl-4" />
           </div>
           <div className="flex flex-col w-full">
-            <input id="user_name" name="user_name" className='bg-container-interactive-background rounded-8 h-10'></input>
+            <TextField id="facebook" value="facebook.com/" className="pl-4" />
           </div>
         </div>
 
@@ -75,14 +73,11 @@ export default function Profile() {
           </div>
           <div className="flex justify-between w-[50%]">
             <div className="">Allow custom tipping amounts</div>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
+            <Checkbox/>
           </div>
         </div>
       </Section>
-      <Divider/>
+      <Divider />
       <div className="flex space-x-8">
         <button className="btn-primary w-[50%] lg:w-48">Save changes</button>
         <button className="btn-secondary border-0 w-[50%] lg:w-48">Preview</button>

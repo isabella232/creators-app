@@ -9,4 +9,8 @@
     .btn-secondary {
         @apply px-8 py-3 text-light-text-interactive font-semibold border hover:bg-light-container-interactive-background rounded-full flex items-center justify-center
     }
+
+    .text-justify-responsive {
+        @apply  text-justify md:text-left
+    }
 }
