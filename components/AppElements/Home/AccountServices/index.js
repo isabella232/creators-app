@@ -1,8 +1,6 @@
-import { Card, Section } from "@components/PageElements"
-import { useAppContext } from "@components/AppContext"
+import { Card, Section } from "@pageElements"
 
-export default function AccountServices() {
-    const { user: { custodian } } = useAppContext()
+export default function AccountServices({ custodian }) {
     const constantProps = { header: "Account services" }
 
     return (

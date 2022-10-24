@@ -1,10 +1,9 @@
-import ChannelCard, { TwitterCard } from "@components/Channels/card"
-import { Card, Section } from "@components/PageElements"
-import { useAppContext } from "@components/AppContext"
+import ChannelCard, { TwitterCard } from "./card"
+import { Card, Section } from "@pageElements"
+
 export { ChannelCard, TwitterCard }
 
-export default function Channels() {
-    const { user: { channels } } = useAppContext()
+export default function Channels({ channels }) {
     const constantProps = { header: "Channels" }
 
     return (

@@ -3,7 +3,7 @@ import '@styles/global.css';
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/router'
 import AppLayout from '@layouts/publisherLayout';
-import AppContext from '@components/AppContext';
+import AppContext from 'appContext';
 
 const EmptyLayout = ({ children }) => <>{children}</>
 

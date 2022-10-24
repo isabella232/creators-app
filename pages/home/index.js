@@ -1,18 +1,9 @@
-import Image from "next/image";
-import chart from 'public/images/CHART.svg'
-import { Card, Section } from "@components/PageElements"
-import Channels from "@components/Channels";
-import Banner from "@components/Banner";
-import AccountServices from "@components/AccountServices";
-import Insights from "@components/Insights";
+import Home from "@components/AppElements/Home"
+import { useAppContext } from "appContext"
 
-export default function Home() {
-  return (
-    <>
-      <AccountServices />
-      <Insights />
-      <Banner/>
-      <Channels/>
-    </>
-  )
+
+export default function Index() {
+  const { user } = useAppContext()
+
+  return <Home {...{ user }} />
 }

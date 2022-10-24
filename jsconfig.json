@@ -3,6 +3,9 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["components/*"],
+      "@formElements": ["components/FormElements"],
+      "@pageElements": ["components/PageElements"],
+      "@appElements/*": ["components/AppElements/*"],
       "@layouts/*": ["layouts/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"]
