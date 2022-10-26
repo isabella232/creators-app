@@ -1,6 +1,6 @@
 import Image from "next/image";
 import chart from 'public/images/CHART.svg'
-import { Card, Section } from "@components/PageElements"
+import { Card } from "components/PageElements"
 
 export default function Insights() {
     return (

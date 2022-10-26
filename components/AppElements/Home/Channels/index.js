@@ -1,5 +1,5 @@
 import ChannelCard, { TwitterCard } from "./card"
-import { Card, Section } from "@pageElements"
+import { Card, Section } from "components/PageElements"
 
 export { ChannelCard, TwitterCard }
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link"
-import { Divider } from "@components/PageElements";
+import { Divider } from "components/PageElements";
 import brave_logo from 'public/images/PublisherMediaAssets/Logos/Brave/PNG/primary/logo/brave-lion.png'
 
 const BraveLogoSmall = () => {

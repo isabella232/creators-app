@@ -1,5 +1,5 @@
-import { Card, Section, Divider } from "@pageElements"
-import { TextField, Checkbox } from "@formElements"
+import { Card, Section, Divider } from "components/PageElements"
+import { TextField, Checkbox } from "components/FormElements"
 
 export default function Profile() {
   return (

@@ -1,9 +1,7 @@
-import Home from "@components/AppElements/Home"
-import { useAppContext } from "appContext"
+import { Home } from "components/AppElements"
+import { useAppContext } from "context"
 
-
-export default function Index() {
+export default () => {
   const { user } = useAppContext()
-
   return <Home {...{ user }} />
 }

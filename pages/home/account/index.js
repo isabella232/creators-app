@@ -1,4 +1,4 @@
-import AccountSettings from "@appElements/AccountSettings"
+import { AccountSettings } from "components/AppElements"
 
 export default AccountSettings
 

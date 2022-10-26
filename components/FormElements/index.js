@@ -1,4 +1,2 @@
-import TextField from "./textfield";
-import Checkbox from "./checkBox";
-
-export { TextField, Checkbox }
+export { default as TextField } from "./textfield";
+export { default as Checkbox } from "./checkBox";

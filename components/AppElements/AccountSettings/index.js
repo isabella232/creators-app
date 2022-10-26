@@ -1,5 +1,5 @@
-import { Card, Section, Divider } from "@pageElements"
-import { TextField } from "@formElements"
+import { Card, Section, Divider } from "components/PageElements"
+import { TextField } from "components/FormElements"
 
 export default function AccountSettings() {
     return (

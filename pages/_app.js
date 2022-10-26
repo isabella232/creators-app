@@ -1,9 +1,9 @@
 // `pages/_app.js`
-import '@styles/global.css';
+import 'styles/global.css';
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/router'
-import AppLayout from '@layouts/publisherLayout';
-import AppContext from 'appContext';
+import { AppLayout } from 'layouts';
+import { AppContext } from 'context';
 
 const EmptyLayout = ({ children }) => <>{children}</>
 

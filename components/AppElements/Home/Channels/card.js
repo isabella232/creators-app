@@ -1,9 +1,9 @@
-import { Twitter } from '@components/Social/icon'
-import { Divider } from "@components/PageElements"
+import { TwitterIcon } from 'components/BrandElements'
+import { Divider } from "components/PageElements"
 
 export const TwitterCard = (props) => {
     return (
-        <ChannelCard {...props} icon={<Twitter />} />
+        <ChannelCard {...props} icon={<TwitterIcon />} />
     )
 }
 
