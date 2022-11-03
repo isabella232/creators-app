@@ -5,13 +5,10 @@ describe(Component.name, () => {
     it('render', () => {
         const { container } = render(<Component />)
 
-        const heading = screen.getByRole('name', {
-            name: /welcome to next\.js!/i,
+        const heading = screen.getByRole('heading', {
+            "name": "Account Settings",
         })
 
-        //console.log({ heading})
-
-        //expect(heading).toBeInTheDocument()
-        //qexpect(container).toMatchSnapshot()
+        expect(heading).toBeTruthy()
     })
 })

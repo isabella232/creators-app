@@ -4,10 +4,10 @@ import { Card } from "components/PageElements"
 
 export default function Insights() {
     return (
-        <Card header="Insights">
+        <Card heading="Insights">
             <p className="text-text-secondary text-text-default">
                 <div className="flex justify-center">
-                    <Image src={chart} width={32} height={32} />
+                    <Image src={chart}/>
                 </div>
             </p>
         </Card>

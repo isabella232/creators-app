@@ -1,7 +1,13 @@
-export default function Section({ header = "Header", className = "", children }) {
+export default function Section({ heading, header = "Header", className = "", children }) {
+    if (!!header & header !== "Header") {
+        console.log("Warning: 'header' prop is deprecated and will be removed in future versions, use 'heading'")
+    }
+
+    const backCompat = !!heading ? heading : header
+
     return (
         <section {...{ className }}>
-            <h3 className='text-h3 text-text-primary font-semibold mb-8'>{header}</h3>
+            <h3 role="heading" className='text-h3 text-text-primary font-semibold mb-8'>{backCompat}</h3>
             {children}
         </section>
     )
