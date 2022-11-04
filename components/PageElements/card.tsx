@@ -1,10 +1,18 @@
+import React from "react"
 
-export default function Card({ heading, header = "Header", className = "", children }) {
+interface CardProps {
+    heading?: string,
+    header?: string,
+    className?: string,
+    children?: React.ReactNode
+}
 
-    if (!!header & header !== "Header") { 
+export default function Card({ heading = null, header = "Header", className = "", children }: CardProps) {
+
+    if (!!header && header !== "Header") {
         console.log("Warning: 'header' prop is deprecated and will be removed in future versions, use 'heading'")
     }
-    
+
     const backCompat = !!heading ? heading : header
 
     return (

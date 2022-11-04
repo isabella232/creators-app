@@ -1,5 +1,13 @@
-export default function Section({ heading, header = "Header", className = "", children }) {
-    if (!!header & header !== "Header") {
+interface SectionProps {
+    heading?: string,
+    header?: string,
+    className?: string,
+    children?: React.ReactNode
+    
+}
+
+export default function Section({ heading, header = "Header", className = "", children }: SectionProps) {
+    if (!!header && header !== "Header") {
         console.log("Warning: 'header' prop is deprecated and will be removed in future versions, use 'heading'")
     }
 
