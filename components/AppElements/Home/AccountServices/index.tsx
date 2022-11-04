@@ -1,7 +1,7 @@
 import { Card, Section } from "components/PageElements"
 
 export default function AccountServices({ custodian }) {
-    const constantProps = { header: "Account services" }
+    const constantProps = { heading: "Account services" }
 
     return (
         <>
