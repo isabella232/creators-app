@@ -1,0 +1,12 @@
+{
+    "title": "Channel",
+    "type": "object",
+    "properties": {
+        "channel_identifier": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "channel_identifier"
+    ]
+}
