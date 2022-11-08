@@ -26,7 +26,6 @@ const SideNav = ({ appContext }) => {
     // more effective.
 
     const toggleChannels = () => {
-        console.log({ channels })
         if (channels && !channels.length) {
             setUser({ ...user, channels: [1, 2, 3, 4] })
         } else if (channels && !!channels.length) {
@@ -116,32 +115,24 @@ const MobileHeader = () => {
 }
 
 export default function Applayout({ appContext = {}, children }) {
-
-
     return (
-        <html data-theme="light">
-            <head>
-                <title>Become a Creator - Brave Rewards | Creators</title>
-                <meta name="description" content="Viewers who use the Brave Browser may have contributed money to you while surfing the web through Brave Rewards. Simply sign up as a verified content creator on Brave Rewards to start collecting your contributions." />
-            </head>
-            <body className="bg-page-background">
-                <MobileHeader />
-                <div className="flex flex-col lg:flex-row justify-between">
-                    <SideNav appContext={appContext} />
-                    <main className="mb-8 lg:m-8 space-y-8 max-w-7xl min-h-screen w-full">
-                        {children}
-                    </main>
-                    <div/>
-                </div>
+        <div className="bg-page-background">
+            <MobileHeader />
+            <div className="flex flex-col lg:flex-row justify-between">
+                <SideNav appContext={appContext} />
+                <main className="mb-8 lg:m-8 space-y-8 max-w-7xl min-h-screen w-full">
+                    {children}
+                </main>
                 <div />
-                <footer className='min-w-full bg-black pl-10 pr-6 pt-10 pb-10'>
-                    <div className="flex text-white"><BraveLogoSmall /><span className="ml-2">brave</span></div>
-                    <div className='text-text-secondary flex flex-col items-end'>
-                        <div className="text-text-small">Terms of use / Report a security issue</div>
-                        <div className='text-text-x-small'>2015 - 2022 Brave Software, Inc | All Rights Reserved</div>
-                    </div>
-                </footer>
-            </body>
-        </html >
+            </div>
+            <div />
+            <footer className='min-w-full bg-black pl-10 pr-6 pt-10 pb-10'>
+                <div className="flex text-white"><BraveLogoSmall /><span className="ml-2">brave</span></div>
+                <div className='text-text-secondary flex flex-col items-end'>
+                    <div className="text-text-small">Terms of use / Report a security issue</div>
+                    <div className='text-text-x-small'>2015 - 2022 Brave Software, Inc | All Rights Reserved</div>
+                </div>
+            </footer>
+        </div>
     )
 }

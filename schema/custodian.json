@@ -1,0 +1,12 @@
+{
+    "title": "Custodian",
+    "type": "object",
+    "properties": {
+        "provider": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "provider"
+    ]
+}

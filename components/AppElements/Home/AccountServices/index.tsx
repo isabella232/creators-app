@@ -1,6 +1,7 @@
 import { Card, Section } from "components/PageElements"
+import { Custodian } from "schema"
 
-export default function AccountServices({ custodian }) {
+export default function AccountServices({ custodian }: {custodian: Custodian | undefined}) {
     const constantProps = { heading: "Account services" }
 
     return (

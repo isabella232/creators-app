@@ -3,11 +3,11 @@ import { TextField, Checkbox } from "components/FormElements"
 
 export default function Profile() {
   return (
-    <Card header="Profile">
-      <Section header="Basic Information">
+    <Card heading="Profile">
+      <Section heading="Basic Information">
         <div>
           <div>Avatar and cover image</div>
-          <img className="rounded-16 max-h-96 w-full" src="https://imgs.search.brave.com/1EKpKtXj52ZQEgqaarntGHylSTi_Cxs-6TPxsFR8LKQ/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9pbWcx/LnNvdXRoZXJubGl2/aW5nLnRpbWVpbmMu/bmV0L3NpdGVzL2Rl/ZmF1bHQvZmlsZXMv/c3R5bGVzLzRfM19o/b3Jpem9udGFsXy1f/MTIwMHg5MDAvcHVi/bGljL2ltYWdlLzIw/MTkvMDYvbWFpbi9n/ZXR0eWltYWdlcy05/MDExMzQ2MjYuanBn/P2l0b2s9OXlfNmI1/Nlk" alt="Cover" usemap="#avatar" />
+          <img className="rounded-16 max-h-96 w-full" src="https://imgs.search.brave.com/1EKpKtXj52ZQEgqaarntGHylSTi_Cxs-6TPxsFR8LKQ/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9pbWcx/LnNvdXRoZXJubGl2/aW5nLnRpbWVpbmMu/bmV0L3NpdGVzL2Rl/ZmF1bHQvZmlsZXMv/c3R5bGVzLzRfM19o/b3Jpem9udGFsXy1f/MTIwMHg5MDAvcHVi/bGljL2ltYWdlLzIw/MTkvMDYvbWFpbi9n/ZXR0eWltYWdlcy05/MDExMzQ2MjYuanBn/P2l0b2s9OXlfNmI1/Nlk" alt="Cover" />
           <map name="workmap">
             <area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm" />
             <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm" />
@@ -29,29 +29,29 @@ export default function Profile() {
         </div>
       </Section>
       <Divider />
-      <Section header="Social media links">
+      <Section heading="Social media links">
         <div className="lg:flex lg:flex-row lg:justify-between lg:space-x-8 mt-2">
           <div className="flex flex-col w-full mb-2 lg:mb-0">
-            <TextField id="twitter" value="twitter.com/" className="pl-4" />
+            <TextField id="twitter" defaultValue="twitter.com/" className="pl-4" />
           </div>
           <div className="flex flex-col w-full">
-            <TextField id="youtube" value="youtube.com/" className="pl-4" />
+            <TextField id="youtube" defaultValue="youtube.com/" className="pl-4" />
           </div>
         </div>
         <div className="lg:flex lg:flex-row lg:justify-between lg:space-x-8 mt-2">
           <div className="flex flex-col w-full mb-2 lg:mb-0">
-            <TextField id="twitch" value="twitch.tv/" className="pl-4" />
+            <TextField id="twitch" defaultValue="twitch.tv/" className="pl-4" />
           </div>
           <div className="flex flex-col w-full">
-            <TextField id="github" value="github.com/" className="pl-4" />
+            <TextField id="github" defaultValue="github.com/" className="pl-4" />
           </div>
         </div>
         <div className="lg:flex lg:flex-row lg:justify-between lg:space-x-8 mt-2">
           <div className="flex flex-col w-full mb-2 lg:mb-0">
-            <TextField id="instagram" value="instagram.com/" className="pl-4" />
+            <TextField id="instagram" defaultValue="instagram.com/" className="pl-4" />
           </div>
           <div className="flex flex-col w-full">
-            <TextField id="facebook" value="facebook.com/" className="pl-4" />
+            <TextField id="facebook" defaultValue="facebook.com/" className="pl-4" />
           </div>
         </div>
 
@@ -61,7 +61,7 @@ export default function Profile() {
           <button className="btn-secondary w-full lg:w-48">Add custom link</button>
         </div>
       </Section>
-      <Section header="Tipping Settings">
+      <Section heading="Tipping Settings">
         <div>Tipping amount options</div>
         <div className="flex justify-between items-center">
           <div className="flex justify-between flex-col w-[50%] mr-8">

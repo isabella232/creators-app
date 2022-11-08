@@ -1,15 +1,16 @@
 import ChannelCard, { TwitterCard } from "./card"
+export { ChannelCard, TwitterCard }
+import { Channel } from "schema"
 import { Card, Section } from "components/PageElements"
 
-export { ChannelCard, TwitterCard }
 
-export default function Channels({ channels }) {
-    const constantProps = { header: "Channels" }
+export default function Channels({ channels }: {channels: Channel[]}) {
+    const constantProps = { heading: "Channels" }
 
     return (
         <>
             {!!channels.length && (
-                <Card {...constantProps} action={<button className="btn-primary" >+ Add Channel</button>}>
+                <Card {...constantProps}>
                     <section id="channelsConfiguredContainer" className="rounded-16 bg-container-background space-y-4">
                         <div className="flex justify-between">
 
@@ -18,7 +19,7 @@ export default function Channels({ channels }) {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis massa non dolor sodales, eu ullamcorper lectus mattis. Nulla eu pellentesque turpis, eget congue est. Etiam ultricies rutrum odio, vel.
                         </p>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                            {channels.slice(0, 10).map(() => <div><TwitterCard /></div>)}
+                            {channels.slice(0, 10).map((i, val) => <div><TwitterCard /></div>)}
                         </div>
                     </section>
                 </Card>
