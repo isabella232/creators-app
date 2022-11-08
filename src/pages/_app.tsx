@@ -1,6 +1,6 @@
 // `pages/_app.js`
 import 'styles/global.css';
-import { AppProps } from 'node_modules/next/app';
+import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useUser, useRouteContext } from 'hooks';
 import { AppLayout } from 'layouts';

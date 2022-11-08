@@ -19,26 +19,25 @@ module.exports = {
   ],
   "webpackFinal": async (config) => {
     const alias = {
-      components: path.resolve(__dirname, '../components'),
-      shapes: path.resolve(__dirname, '../shapes'),
-      lib: path.resolve(__dirname, '../lib'),
-      styles: path.resolve(__dirname, '../styles'),
-      public: path.resolve(__dirname, '../public'),
+      components: path.resolve(__dirname, '../src/components'),
+      shapes: path.resolve(__dirname, '../src/shapes'),
+      styles: path.resolve(__dirname, '../src/styles'),
+      public: path.resolve(__dirname, '../src/public'),
     }
 
     config.resolve.alias = { ...config.resolve.alias, ...alias }
     config.resolve.roots = [
-      path.resolve(__dirname, '../public'),
+      path.resolve(__dirname, '../src/public'),
       'node_modules',
     ];
 
     return (config)
   },
   "stories": [
-    "../stories/**/*.stories.mdx",
-    "../stories/**/*.stories.@(js|jsx|ts|tsx)",
-    "../components/**/*.stories.@(js|jsx|ts|tsx)",
-    "../components/AppElements/**/*.stories.@(js|jsx|ts|tsx)",
+    "../src/stories/**/*.stories.mdx",
+    "../src/stories/**/*.stories.@(js|jsx|ts|tsx)",
+    "../src/components/**/*.stories.@(js|jsx|ts|tsx)",
+    "../src/components/AppElements/**/*.stories.@(js|jsx|ts|tsx)",
 
   ],
   "addons": [
