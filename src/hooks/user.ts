@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { User, Channel, Custodian } from "schema";
+import { User, Channel, Custodian } from "types";
 
 interface HookOutput {
     user: User | undefined,

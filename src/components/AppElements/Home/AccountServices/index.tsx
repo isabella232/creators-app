@@ -1,5 +1,5 @@
 import { Card, Section } from "components/PageElements"
-import { Custodian } from "schema"
+import { Custodian } from "types"
 
 export default function AccountServices({ custodian }: {custodian: Custodian | undefined}) {
     const constantProps = { heading: "Account services" }

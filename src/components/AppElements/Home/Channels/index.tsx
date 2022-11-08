@@ -1,6 +1,6 @@
 import ChannelCard, { TwitterCard } from "./card"
 export { ChannelCard, TwitterCard }
-import { Channel } from "schema"
+import { Channel } from "types"
 import { Card, Section } from "components/PageElements"
 
 

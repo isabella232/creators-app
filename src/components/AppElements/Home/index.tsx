@@ -2,7 +2,7 @@ import Channels from "./Channels";
 import Banner from "./Banner";
 import AccountServices from "./AccountServices";
 import Insights from "./Insights";
-import { User } from 'schema';
+import { User } from 'types';
 
 
 export default function Home({ user }: { user: User }) {

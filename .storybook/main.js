@@ -20,7 +20,6 @@ module.exports = {
   "webpackFinal": async (config) => {
     const alias = {
       components: path.resolve(__dirname, '../src/components'),
-      shapes: path.resolve(__dirname, '../src/shapes'),
       styles: path.resolve(__dirname, '../src/styles'),
       public: path.resolve(__dirname, '../src/public'),
     }
@@ -37,8 +36,6 @@ module.exports = {
     "../src/stories/**/*.stories.mdx",
     "../src/stories/**/*.stories.@(js|jsx|ts|tsx)",
     "../src/components/**/*.stories.@(js|jsx|ts|tsx)",
-    "../src/components/AppElements/**/*.stories.@(js|jsx|ts|tsx)",
-
   ],
   "addons": [
     "@storybook/addon-links",

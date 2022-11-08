@@ -14,11 +14,11 @@
         "channels": {
             "type": "array",
             "items": {
-                "$ref": "schema/channel.json"
+                "$ref": "src/schema/channel.json"
             }
         },
         "custodian": {
-            "$ref": "schema/custodian.json"
+            "$ref": "src/schema/custodian.json"
         }
     },
     "required": [
