@@ -1,4 +1,5 @@
 {
+    "$id": "http://creators.brave.com/public/schema/channel.json",
     "title": "Channel",
     "type": "object",
     "properties": {
