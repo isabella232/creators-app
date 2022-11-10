@@ -3,6 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
   addons: [
+    'storybook-dark-mode',
     {
       name: '@storybook/addon-postcss',
       options: {

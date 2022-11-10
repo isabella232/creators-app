@@ -1,4 +1,5 @@
 {
+    "$id": "http://creators.brave.com/public/schema/custodian.json",
     "title": "Custodian",
     "type": "object",
     "properties": {
