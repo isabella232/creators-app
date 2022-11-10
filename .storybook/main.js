@@ -5,11 +5,6 @@ module.exports = {
     {
       name: '@storybook/addon-postcss',
       options: {
-        cssLoaderOptions: {
-          // When you have splitted your css over multiple files
-          // and use @import('./other-styles.css')
-          importLoaders: 1,
-        },
         postcssLoaderOptions: {
           // When using postCSS 8
           implementation: require('postcss'),
@@ -22,6 +17,7 @@ module.exports = {
       components: path.resolve(__dirname, '../src/components'),
       styles: path.resolve(__dirname, '../src/styles'),
       public: path.resolve(__dirname, '../src/public'),
+      fonts: path.resolve(__dirname, '../src/public/fonts')
     }
 
     config.resolve.alias = { ...config.resolve.alias, ...alias }
@@ -30,6 +26,27 @@ module.exports = {
       'node_modules',
     ];
 
+    config.module.rules.push({
+      test: /\.css$/,
+      use: [
+        {
+          loader: 'postcss-loader',
+          options: {
+            postcssOptions: {
+              presets: [
+                require("@brave/leo/build/tailwind")
+              ],
+              plugins: [
+                require('tailwindcss'),
+                require('autoprefixer'),
+              ],
+            },
+          },
+        },
+      ],
+      include: path.resolve(__dirname, '../'),
+    })
+    
     return (config)
   },
   "stories": [
