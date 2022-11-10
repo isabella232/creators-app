@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { User, Channel, Custodian } from "schema";
+import { User, Channel, Custodian } from "types";
 
 interface HookOutput {
     user: User | undefined,
@@ -15,7 +15,7 @@ interface HookOutput {
 const getUser = (): User => {
     // This is just a standin for an actual HTTP request
     const custodian: Custodian = { "provider": "uphold" }
-    const channels: Channel[] = [{ channel_identifier: "twitter@derp#something" }]
+    const channels: Channel[] = []
     
     const user: User = {
         first_name: "Demo",

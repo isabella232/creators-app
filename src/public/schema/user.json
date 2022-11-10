@@ -1,4 +1,5 @@
 {
+    "$id": "http://creators.brave.com/public/schema/user.json",
     "title": "User",
     "type": "object",
     "properties": {
@@ -14,11 +15,11 @@
         "channels": {
             "type": "array",
             "items": {
-                "$ref": "schema/channel.json"
+                "$ref": "src/public/schema/channel.json"
             }
         },
         "custodian": {
-            "$ref": "schema/custodian.json"
+            "$ref": "src/public/schema/custodian.json"
         }
     },
     "required": [

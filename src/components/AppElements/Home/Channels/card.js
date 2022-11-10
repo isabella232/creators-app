@@ -15,9 +15,9 @@ export default function ChannelCard({ icon, name = "Twitter", username = "oauthb
                     <div className='flex flex-row justify-between sm:flex-col sm:items-start'>
                         <div className="flex flex-row items-center space-x-2">
                             {icon}
-                            <div className='font-normal text-text-small'>{name}</div>
+                            <div className='font-normal text-text-small text-text-primary'>{name}</div>
                         </div>
-                        <h4>{username}</h4>
+                        <h4 className='text-text-primary'>{username}</h4>
                     </div>
                     <div className='flex flex-row justify-between items-center sm:flex-col sm:items-start'>
                         <div className='text-text-small text-text-secondary'>Previous Period Earnings</div>

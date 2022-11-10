@@ -2,6 +2,8 @@ import { Card, Section, Divider } from "components/PageElements"
 import { TextField, Checkbox } from "components/FormElements"
 
 export default function Profile() {
+  const tipping = false
+  
   return (
     <Card heading="Profile">
       <Section heading="Basic Information">
@@ -30,7 +32,7 @@ export default function Profile() {
       </Section>
       <Divider />
       <Section heading="Social media links">
-        <div className="lg:flex lg:flex-row lg:justify-between lg:space-x-8 mt-2">
+        <div className="md:flex md:flex-row md:justify-between md:space-x-8 mt-2">
           <div className="flex flex-col w-full mb-2 lg:mb-0">
             <TextField id="twitter" defaultValue="twitter.com/" className="pl-4" />
           </div>
@@ -38,7 +40,7 @@ export default function Profile() {
             <TextField id="youtube" defaultValue="youtube.com/" className="pl-4" />
           </div>
         </div>
-        <div className="lg:flex lg:flex-row lg:justify-between lg:space-x-8 mt-2">
+        <div className="md:flex md:flex-row md:justify-between md:space-x-8 mt-2">
           <div className="flex flex-col w-full mb-2 lg:mb-0">
             <TextField id="twitch" defaultValue="twitch.tv/" className="pl-4" />
           </div>
@@ -46,7 +48,7 @@ export default function Profile() {
             <TextField id="github" defaultValue="github.com/" className="pl-4" />
           </div>
         </div>
-        <div className="lg:flex lg:flex-row lg:justify-between lg:space-x-8 mt-2">
+        <div className="md:flex md:flex-row md:justify-between md:space-x-8 mt-2">
           <div className="flex flex-col w-full mb-2 lg:mb-0">
             <TextField id="instagram" defaultValue="instagram.com/" className="pl-4" />
           </div>
@@ -58,29 +60,32 @@ export default function Profile() {
         <div className="mt-4">Custom link</div>
         <div className="flex flex-col w-full space-y-4">
           <input id="custom_link" name="custom_link" className='bg-container-interactive-background rounded-8 h-10'></input>
-          <button className="btn-secondary w-full lg:w-48">Add custom link</button>
+          <button className="btn-secondary w-full md:w-48">Add custom link</button>
         </div>
       </Section>
-      <Section heading="Tipping Settings">
-        <div>Tipping amount options</div>
-        <div className="flex justify-between items-center">
-          <div className="flex justify-between flex-col w-[50%] mr-8">
-            <select className="bg-container-interactive-background rounded-8 h-10 w-full" type="dropdown">
-              <option>10</option>
-              <option>10</option>
-              <option>10</option>
-            </select>
+      {tipping &&
+        <Section heading="Tipping Settings">
+          <div className="flex flex-col md:flex-row justify-between items-center w-full">
+            <div>Tipping amount options</div>
+
+            <div className="flex justify-between flex-col w-full md:w-[50%] mr-8">
+              <select className="bg-container-interactive-background rounded-8 h-10 w-full" type="dropdown">
+                <option>10</option>
+                <option>10</option>
+                <option>10</option>
+              </select>
+            </div>
+            <div className="flex justify-between w-full md:w-[50%]">
+              <div className="">Allow custom tipping amounts</div>
+              <Checkbox />
+            </div>
           </div>
-          <div className="flex justify-between w-[50%]">
-            <div className="">Allow custom tipping amounts</div>
-            <Checkbox/>
-          </div>
-        </div>
-      </Section>
+        </Section>
+      }
       <Divider />
       <div className="flex space-x-8">
-        <button className="btn-primary w-[50%] lg:w-48">Save changes</button>
-        <button className="btn-secondary border-0 w-[50%] lg:w-48">Preview</button>
+        <button className="btn-primary w-[50%] md:w-48">Save changes</button>
+        <button className="btn-secondary border-0 w-[50%] md:w-48">Preview</button>
       </div>
     </Card>
   )
