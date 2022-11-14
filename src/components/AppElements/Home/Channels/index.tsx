@@ -15,7 +15,7 @@ export default function Channels({ channels }: { channels: Channel[] }) {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis massa non dolor sodales, eu ullamcorper lectus mattis. Nulla eu pellentesque turpis, eget congue est. Etiam ultricies rutrum odio, vel.
                 </p>
                 {!!channels.length && <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {channels.slice(0, 10).map((i, val) => <div><TwitterCard /></div>)}
+                    {channels.slice(0, 10).map((channel, i) => <div key={i}><TwitterCard /></div>)}
                 </div>}
                 {!channels.length && <div className='rounded-16 border border-gray-20 flex flex-col items-center p-8 space-y-4'>
                     <div className="h-40 bg-gray-20 w-40"></div>
