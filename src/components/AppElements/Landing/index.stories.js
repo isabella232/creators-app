@@ -1,5 +1,5 @@
-import Page from '../components/AppElements/Landing';
-import '../styles/global.css';
+import Page from 'components/AppElements/Landing';
+import 'styles/global.css';
 
 export default {
   title: 'AppElements/Landing',

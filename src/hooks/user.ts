@@ -12,7 +12,7 @@ interface HookOutput {
 // The fetch function should be a stand alone stubable HTTP request that gets called
 // within a hook.
 
-const getUser = (): User => {
+export const getUser = (): User => {
     // This is just a standin for an actual HTTP request
     const custodian: Custodian = { "provider": "uphold" }
     const channels: Channel[] = []

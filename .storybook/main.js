@@ -1,7 +1,9 @@
 const path = require('path')
+var webpack = require('webpack');
 
 module.exports = {
   addons: [
+    'storybook-dark-mode',
     {
       name: '@storybook/addon-postcss',
       options: {
@@ -17,14 +19,27 @@ module.exports = {
       components: path.resolve(__dirname, '../src/components'),
       styles: path.resolve(__dirname, '../src/styles'),
       public: path.resolve(__dirname, '../src/public'),
-      fonts: path.resolve(__dirname, '../src/public/fonts')
+      images: path.resolve(__dirname, '../src/public/images'),
+      fonts: path.resolve(__dirname, '../src/public/fonts'),
+      hooks: path.resolve(__dirname, '../src/hooks')
+
     }
 
     config.resolve.alias = { ...config.resolve.alias, ...alias }
     config.resolve.roots = [
       path.resolve(__dirname, '../src/public'),
-      'node_modules',
+      '../node_modules',
     ];
+
+    config.plugins.push(new webpack.DefinePlugin({
+      'process.env.__NEXT_IMAGE_OPTS': JSON.stringify({
+        deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+        imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+        domains: [],
+        path: '/',
+        loader: 'default',
+      }),
+    }));
 
     config.module.rules.push({
       test: /\.css$/,
@@ -43,10 +58,9 @@ module.exports = {
             },
           },
         },
-      ],
-      include: path.resolve(__dirname, '../'),
+      ]
     })
-    
+
     return (config)
   },
   "stories": [

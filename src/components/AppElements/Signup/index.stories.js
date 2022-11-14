@@ -1,5 +1,4 @@
-import Page from '../components/AppElements/Signup';
-import '../styles/global.css';
+import Page from 'components/AppElements/Signup';
 
 export default {
   title: 'AppElements/Signup',
