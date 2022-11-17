@@ -1,6 +1,11 @@
 import { Card, Section } from "components/PageElements"
+import { Banner as BannnerType } from "types"
 
-export default function Banner({ banner }) {
+export interface ComponentProps { 
+    banner?: BannnerType
+}
+
+export default function Banner({ banner }: ComponentProps) {
 
     const buttonProps = { className: `${banner ? "btn-secondary" : "btn-primary"} w-[83%] md:w-fit mt-8 md:mt-0` }
 

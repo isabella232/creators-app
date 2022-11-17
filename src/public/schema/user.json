@@ -20,6 +20,9 @@
         },
         "custodian": {
             "$ref": "src/public/schema/custodian.json"
+        },
+        "banner": {
+            "$ref": "src/public/schema/banner.json"
         }
     },
     "required": [

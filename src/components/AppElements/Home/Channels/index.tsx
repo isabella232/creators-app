@@ -3,8 +3,11 @@ export { ChannelCard, TwitterCard }
 import { Channel } from "types"
 import { Card, Section } from "components/PageElements"
 
+export interface ComponentProps { 
+    channels: Channel[]
+}
 
-export default function Channels({ channels }: { channels: Channel[] }) {
+export default function Channels({ channels }: ComponentProps) {
     return (
         <Card heading="Channels">
             <section id="channelsConfiguredContainer" className="rounded-16 bg-container-background space-y-4">

@@ -1,0 +1,13 @@
+{
+    "$id": "http://creators.brave.com/public/schema/banner.json",
+    "title": "Banner",
+    "type": "object",
+    "properties": {
+        "url": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "url"
+    ]
+}
