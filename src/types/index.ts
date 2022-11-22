@@ -11,6 +11,7 @@ export interface User {
   email: string;
   channels: Channel[];
   custodian?: Custodian;
+  banner?: Banner;
   [k: string]: unknown;
 }
 export interface Channel {
@@ -19,5 +20,9 @@ export interface Channel {
 }
 export interface Custodian {
   provider: string;
+  [k: string]: unknown;
+}
+export interface Banner {
+  url: string;
   [k: string]: unknown;
 }

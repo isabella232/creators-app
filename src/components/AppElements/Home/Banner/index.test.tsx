@@ -1,8 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import Component from './index'
+import Component, { ComponentProps } from './index'
+import { bannerFactory } from 'tests/factories'
 
+const banner = bannerFactory()
 
-const stateTest = ({ context = "", props = { banner: false } , className = "btn-primary"} = {}) => {
+const stateTest = (context: string = "", props: ComponentProps = {}, className: string = "btn-primary") => {
     describe(Component.name, () => {
 
         it(context, () => {
@@ -21,4 +23,4 @@ const stateTest = ({ context = "", props = { banner: false } , className = "btn-
 }
 
 stateTest("should show primary button when unconfigured")
-stateTest({ context: "should show secondary button when configured", props: { banner: true }, className: "btn-secondary" })
+stateTest("should show secondary button when configured", { banner }, "btn-secondary")
